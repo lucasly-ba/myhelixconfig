@@ -7,15 +7,13 @@ theme = "base16_transparent"
 "\\" = "move_char_right"
 "," = ["collapse_selection", "keep_primary_selection"]
 "C-f" = "search"
-"p" = ["select_mode","goto_line_end","paste_after"]
-"P" = ["paste_after"]
 "k" = [ "yank" ]
 "D" = { "l" = [ "insert_mode", "kill_to_line_start" ] , "\\" = [ "insert_mode","kill_to_line_end"]}
 "tab" = "goto_line"
-"f" = [ "goto_word" ]
-"F" = [ "extend_line_below","select_regex"]
-"X" = [ "move_visual_line_up", "extend_line_below" ]
+"X" = [ "goto_line_end","select_mode"]
 "S-g" = ["goto_file_start","select_mode","goto_last_line","extend_line_below","yank_to_clipboard"]
+"C-l" = ["goto_line_start"]
+"C-\\" = ["goto_line_end"]
 
 [keys.insert]
 "l" = { ';'= "normal_mode"}
@@ -35,8 +33,14 @@ theme = "base16_transparent"
 
 
 [keys.normal.g]
-"l" = "goto_line_start"
-"\\" = "goto_line_end"
+"t" = "goto_last_modified_file"
+"f" = "goto_last_accessed_file"
+"l" = "goto_previous_buffer"
+"\\" = "goto_next_buffer"
+
+[keys.normal.space.m]
+"m" = "@:sh hx-bash -c"
+"t" = "@:sh /run/current-system/sw/bin/bash -c ./src/tc"
 
 [keys.normal.space]
 "l" =  "jump_view_left" 
@@ -55,7 +59,7 @@ theme = "base16_transparent"
 
 [keys.normal.z]
 "x" = "align_view_bottom"
-"c" = "align_view_top"
+"a" = "align_view_top"
 
 [editor]
 auto-pairs = false
